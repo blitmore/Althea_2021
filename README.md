@@ -1,6 +1,8 @@
 # Althea_2021
 2021 Althea testnet activities
 
+This stuff was built for Raspberry Pi 4B, the LED stuff refers to that. 
+
 the unjail attempt will not function without the "expect" utility, 
 so install it. For Debian based:
 

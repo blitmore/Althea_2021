@@ -18,7 +18,8 @@ log="/var/log/althea_jailed.log"
 ## Path to your althea binary
 althea="/usr/bin/althea"
 validator="cosmosvaloper1....."
-unjailme="/home/feb13/bin/unjailme.exp"
+althea_user="feb13"
+unjailme="/home/${althea_user}/bin/unjailme.exp"
 ## Watch out, this is a bash script, be sure to escape any control chars....
 password="PassW0rD"
 
