@@ -1,0 +1,34 @@
+#!/usr/bin/expect -f
+
+############################################################################## 
+## 
+##
+## last updated 02/26/2021 by Blitmore, use at your own risk
+##
+## You must have performed 'apt install expect' for this to work.
+## 
+## Invocation as follows: 
+##  If your interactive, normal invocation is as follows, and your password is "PASSword":
+## 
+##    > althea tx slashing unjail --from validator --fees 5000ualtg --chain-id=althea-testnet1v2
+## 
+##  Replace it with :
+## 
+##    > unjailme.exp validator althea-testnet1v2 PASSword
+## 
+############################################################################## 
+
+set validator [lindex $argv 0]
+set chain [lindex $argv 1]
+set password [lindex $argv 2]
+
+ 
+set timeout -1
+spawn althea tx slashing unjail --from "${validator}" --fees 5000ualtg --chain-id "${chain}"
+match_max 100000
+expect -exact "Enter keyring passphrase:"
+send -- "${password}\r"
+expect -exact "confirm transaction before signing and broadcasting \[y/N\]: "
+send -- "y\r"
+expect eof
+
